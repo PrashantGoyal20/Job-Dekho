@@ -1,0 +1,18 @@
+.registeration-error{
+    color: white;
+    position: fixed;
+    z-index: 100;
+    top: 100px;
+    display: block;
+    margin-left: 43%;
+    margin-right: 50%;
+    width: 200px;
+    background:rgba(41, 41, 41, 0.8) ;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+.registeration-error-hidden{
+    display: none;
+}

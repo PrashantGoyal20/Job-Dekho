@@ -1,0 +1,18 @@
+.myjob-container{
+    margin-top: 120px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ffffff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.no-jobs{
+    color: white;
+    margin: 7%;
+    font-size: 40px;
+    text-align: center;
+}

@@ -1,0 +1,82 @@
+.interview-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    color: white;
+    margin-top: 80px;
+}
+.interview-heading{
+    font-size:45px;
+    font-weight: 700;
+    font-style: oblique;
+    letter-spacing: 2px;
+}
+
+.interview-heading-2{
+    margin-top: 14px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.interview-container select{
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 20px;
+    max-height: 90px;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    width: 40%;
+    background-position: 550px 10px;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.interview-container option{
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.interview-btn{
+    margin-top: 20px;
+}
+.interview-btn button{
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: transparent;
+    border: transparent;
+    font-size: 30px;
+}
+
+.interview-submit{
+    width: 300px;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 60px;
+    background-color: #ffbb1c;
+    transition: ease-out 0.5s;
+}
+.interview-submit:hover{
+    width: 310px;
+}
+.interview-container p{
+    margin-top: 20px;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+
+.interview-error-hidden{
+    display: none;
+}
+.interview-error-visible{
+    background-color: black;
+    padding: 5px;
+    border-radius: 15px;
+}

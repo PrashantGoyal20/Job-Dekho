@@ -1,0 +1,150 @@
+.application{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-left: auto;
+margin-right: auto;
+width: 80%;
+margin-bottom: 100px;
+}
+.application-container{
+    margin-top: 0px;
+    padding: 40px;
+}
+
+.application-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.company-information{
+    display: flex;
+    align-items: center;
+}
+
+.company-information img{
+    object-fit: contain;
+    height: 68px;
+}
+.company-information span{
+    color: white;
+    margin-left: 20px;
+}
+
+.btn-primary-interview-started{
+    background: red;
+    color: white;
+}
+.no-interview-hidden{
+    display: none;
+}
+.no-interview{
+    color: rgb(193, 191, 191);
+    background-color: rgb(86, 86, 86);
+    position:fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 100;
+    margin-left: 40%;
+    padding: 10px;
+    border-radius:10px;
+    transition: all 1s;
+}
+
+.no-application{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 181px;
+    color: #38b6ff;
+}
+
+
+.lk-grid-layout{
+    display: flex;
+}
+
+.lk-grid-layout-wrapper{
+    height: 89% !important;
+    width: 100%;
+}
+.lk-participant-tile{
+width: 100%;
+}
+.lk-participant-media-video{
+  width: 100%;
+}
+.lk-device-menu{
+    background-color: #38b6ff;
+}
+
+.lk-button[aria-pressed="false"] svg{
+  margin-top: 50%;
+  margin-bottom: 25%;
+}
+
+.lk-disconnect-button{
+  background-color: blue;
+  height: 60px;
+}
+.lk-device-menu ul{
+  list-style: none;
+}
+.lk-device-menu ul li :hover{
+    background-color: #f4ad07;
+}
+.lk-button[aria-pressed="true"]  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    overflow: hidden;
+}
+
+.lk-button-group{
+  transition: ease-out 0.8s; 
+  height: 60px;
+  border-radius: 20px !important;
+}
+
+.lk-button{
+  height: 60px;
+  overflow: hidden;
+}
+
+
+.lk-button[aria-pressed="false"] {
+    color: white;
+    overflow: hidden;
+    background-color: red !important;
+}
+
+
+.lk-video-conference{
+
+}
+
+.lk-chat{
+display: grid;
+grid-template-rows: 10% 80% 10% !important;
+}
+
+.lk-close-button{
+    background-color: transparent !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.lk-chat-form-input{
+    padding-left: 10px !important;
+}
+
+.lk-chat-form-button{
+    background-color: #f4ad07 !important;
+}
+
+.lk-chat{
+    background-color: gray !important;
+}

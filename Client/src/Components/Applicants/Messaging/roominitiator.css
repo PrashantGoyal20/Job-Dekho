@@ -1,0 +1,102 @@
+.lk-grid-layout{
+    display: flex;
+}
+
+.lk-grid-layout-wrapper{
+    height: 89% !important;
+    width: 100%;
+}
+.lk-participant-tile{
+width: 100%;
+}
+.lk-participant-media-video{
+  width: 100%;
+}
+.lk-device-menu{
+    background-color: #38b6ff;
+}
+
+.lk-button[aria-pressed="false"] svg{
+  margin-top: 22px;
+}
+
+.lk-disconnect-button{
+  background-color: blue;
+}
+.lk-device-menu ul{
+  list-style: none;
+}
+.lk-device-menu ul li :hover{
+    background-color: #f4ad07;
+}
+.lk-button[aria-pressed="true"]  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    overflow: hidden;
+}
+
+.lk-button-group{
+  transition: ease-out 0.8s; 
+  height: 60px;
+  border-radius: 20px !important;
+}
+
+.lk-button{
+  height: 60px;
+  overflow: hidden;
+}
+
+
+.lk-button[aria-pressed="false"] {
+    color: white;
+    overflow: hidden;
+    background-color: red !important;
+}
+
+
+.lk-video-conference{
+
+}
+
+.lk-chat{
+display: grid;
+grid-template-rows: 10% 80% 10% !important;
+}
+
+.lk-close-button{
+    background-color: transparent !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.lk-chat-form-input{
+    padding-left: 10px !important;
+}
+
+.lk-chat-form-button{
+    background-color: #f4ad07 !important;
+}
+
+.lk-chat{
+    background-color: gray !important;
+}
+
+.form-card-2{
+  margin-top: 150px;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    left: 130%;
+}
+.form-container-2{
+  width: 100%;
+    max-width: 420px;
+    animation: fade-in 0.6s ease-out;
+    margin-bottom: 20px;
+}

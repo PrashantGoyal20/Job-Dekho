@@ -1,0 +1,43 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@livekit/components-react": "^2.9.13",
+    "@livekit/components-styles": "^1.1.6",
+    "@mui/icons-material": "^5.15.21",
+    "@mui/material": "^5.15.21",
+    "axios": "^1.7.2",
+    "livekit-client": "^2.15.2",
+    "lucide-react": "^0.525.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.24.0",
+    "react-slick": "^0.30.3",
+    "simple-peer": "^9.11.1",
+    "socket.io-client": "^4.8.1",
+    "swiper": "^11.2.10",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "vite": "^5.3.1"
+  }
+}

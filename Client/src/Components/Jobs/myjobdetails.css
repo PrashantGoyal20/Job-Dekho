@@ -1,0 +1,47 @@
+.my-jobs{
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.job-custom-next{
+    position: relative;
+    margin-left:96% ;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #38b6ff, #ffbb1c);
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    top:40rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.job-custom-prev{
+    position: relative;
+    margin-left:2% ;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #38b6ff, #ffbb1c);
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    top: 42.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.swiper-pagination-bullet{
+    background: grey;
+}
+
+.jobDetail-pagenum{
+    background-color: rgb(68, 67, 67);
+    width: 60px;
+    text-align: center;
+    margin-left: 50%;
+    margin-right: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    margin-bottom: -3%;
+}

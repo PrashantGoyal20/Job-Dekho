@@ -1,0 +1,113 @@
+.job-container{
+margin-top: 80px;
+}
+.jobs-grid-2 {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+.developer-slider{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.developer-slider h4{
+    margin-left: 30px;
+}
+.no-search-result{
+  margin: 40px;
+  padding-left: 20px;
+  font-size: 30px;
+  font-weight: 600;
+}
+.job-card-2{
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 6rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  color: #6366f1;      /* Visible color */
+  font-size: 24px;
+  top: 50%;            /* Center vertically */
+  transform: translateY(-50%);
+  position: absolute;  /* Position inside container */
+}
+
+.custom-swiper .swiper-button-prev {
+  left: 10px;          /* Keep it near the carousel */
+}
+
+.custom-swiper .swiper-button-next {
+  right: 10px;
+}
+.slick-slide {
+  padding: 0 20px; /* 10px spacing on left & right */
+  box-sizing: border-box;
+}
+
+.slick-list {
+  margin: 0 -20px; /* Compensate padding so total width stays aligned */
+}
+
+.job-card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #38b6ff, #ffbb1c);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+
+.job-card-2:hover::before {
+    transform: scaleX(1);
+}
+
+.job-card-2:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+}
+
+.sde-custom-next,.dev-custom-next,.search-custom-next{
+    position: relative;
+    margin-left:96% ;
+    right: 20px;
+    top: -210px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #38b6ff, #ffbb1c);
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    bottom: 20rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sde-custom-prev,.dev-custom-prev,.search-custom-prev{
+    position: relative;
+    margin-left:2% ;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #38b6ff, #ffbb1c);
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    top: 17rem;
+    cursor: pointer;
+    z-index: 10;
+}
