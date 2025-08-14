@@ -23,6 +23,8 @@ import Footer from '../Permanent/Footer'
 
 
 const JobDetails = () => {
+
+  const server=import.meta.env.VITE_APP_SERVER
   const { id } = useParams();
   const [job, setJob] = useState([]);
   const navigate = useNavigate();
@@ -53,7 +55,7 @@ const JobDetails = () => {
 
       
     axios
-      .get(`http://localhost:3000/job/jobDetails/${id}`, {
+      .get(`${server}/job/jobDetails/${id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -75,7 +77,7 @@ const JobDetails = () => {
    const handleSave = async() => {
     if(!isAuthorized) navigate('/login')
       axios
-      .get(`http://localhost:3000/job/saveJob/${id}`, {
+      .get(`${server}/job/saveJob/${id}`, {
         withCredentials: true,
       }).then(setIsSaved(true))
 
@@ -83,7 +85,7 @@ const JobDetails = () => {
 
   const deleteSave = () => {
     axios
-      .get(`http://localhost:3000/job/deleteSavedJob/${id}`, {
+      .get(`${server}/job/deleteSavedJob/${id}`, {
         withCredentials: true,
       }).then(setIsSaved(false))
   };

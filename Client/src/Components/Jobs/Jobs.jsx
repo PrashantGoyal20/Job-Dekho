@@ -15,6 +15,8 @@ import Loader from '../Permanent/Loader';
 
 
 const Jobs = () => {
+
+  const server=import.meta.env.VITE_APP_SERVER
   const [jobs, setJobs] = useState([]);
   const [load, setLoad] = useState(true);
   const [search, setSearch] = useState([])
@@ -25,7 +27,7 @@ const Jobs = () => {
   useEffect(() => {
     const fetchSearch = async () => {
       try {
-        await axios.get(`http://localhost:3000/job/searchJob${location.search}`).then((response) => {
+        await axios.get(`${server}/job/searchJob${location.search}`).then((response) => {
           setSearch(response.data?.search[0]?.concat(response.data?.search[1]));
           setLoad(false)
         }
@@ -37,7 +39,7 @@ const Jobs = () => {
     }
     const fetchJobs = async () => {
       try {
-        await axios.get(`http://localhost:3000/job/getAllJobs`).then((response) => {
+        await axios.get(`${server}/job/getAllJobs`).then((response) => {
           setJobs(response.data.jobs);
           setLoad(false)
         }

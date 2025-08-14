@@ -8,6 +8,8 @@ import "./proceedInterview.css"
 import { Link } from 'react-router-dom'
 
 const ProceedInterview = () => {
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const location = useLocation()
   const [ques, setQues] = useState([])
   const [index, setIndex] = useState(0)
@@ -23,7 +25,7 @@ const ProceedInterview = () => {
 
   useEffect(() => {
     const handleQuestion = async () => {
-      await axios.get(`http://localhost:3000/job/getQuestion${location.search}`
+      await axios.get(`${server}/job/getQuestion${location.search}`
 
       ).then(ques=>{
       setQues(ques.data.question)

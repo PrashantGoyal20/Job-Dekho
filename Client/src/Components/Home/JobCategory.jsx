@@ -7,13 +7,14 @@ import axios from 'axios'
 
 const JobCategory = () => {
 
+    const server=import.meta.env.VITE_APP_SERVER
     const navigate = useNavigate();
     const [jobs, setJobs] = useState([])
     const [total, setTotal] = useState('')
     useEffect(() => {
         const fetchJobs = async () => {
             await axios.get(
-                `http://localhost:3000/job/getAllJobs`
+                `${server}/job/getAllJobs`
             ).then((response) => {
                 setJobs(response.data.jobs.slice(0,6))
                 setTotal(Object.keys(response.data.jobs)?.length)

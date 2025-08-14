@@ -11,7 +11,8 @@ import { useEffect } from 'react';
 
 const Register = () => {
 
-
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +47,7 @@ const Register = () => {
       error.current.classList.replace("error-hidden","error-visible");
       return
       }
-      const { data } = await axios.post("http://localhost:3000/user/register",
+      const { data } = await axios.post(`${server}/user/register`,
         { name, email, phone, password, role, city }, {
         headers: {
           "Content-Type": "application/json",
@@ -194,7 +195,7 @@ const Register = () => {
           </div>
 
           <div className="social-buttons">
-            <a href='http://localhost:3000/user/google' className="social-btn" >
+            <a href={google} className="social-btn" >
               <span className="social-icon google">G</span>
               Google
             </a>

@@ -12,9 +12,11 @@ import "./favourite.css"
 import { useNavigate } from 'react-router-dom'
 
 const Favourites = () => {
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
     const [application,setApplication]=useState([])
     const [load,setLoad]=useState(true)
-    const {use,isAuthorized}=useContext(Context)
+    const {user,isAuthorized}=useContext(Context)
     const [employer,setEmployer]=useState([])
     const [filter, setFilter] = useState('all');
     const navigate=useNavigate()
@@ -33,12 +35,12 @@ const Favourites = () => {
     
 
     useEffect(() => {
-        // if(!isAuthorized || user?.role!='Job Manager'){
-        //     navigate('/login')
-        // }
+        if(!isAuthorized || user?.role!='Job Manager'){
+            navigate('/login')
+        }
         const fetchJobs = async () => {
 
-            await axios.get(`http://localhost:3000/job/getAllFavourites`, {
+            await axios.get(`${server}/job/getAllFavourites`, {
                 withCredentials: true
             }).then((res) => {
                 setApplication(res.data.applications)

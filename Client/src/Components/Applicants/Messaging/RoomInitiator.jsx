@@ -11,6 +11,8 @@ import Loader from '../../Permanent/Loader'
 import './roominitiator.css'
 
 const RoomInitiator = () => {
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const [room,setRoom] =useState('')
   const [name,setName]=useState('')
   const [tokenData, setTokenData] = useState(null);
@@ -22,7 +24,7 @@ const RoomInitiator = () => {
   const initiateRoom=async()=>{
     // if(!name || !room) return;
     setLoad(true)
-    await axios.post(`http://localhost:3000/get-token/${id}`,{room,name,isApplicant:false}, {
+    await axios.post(`${server}/get-token/${id}`,{room,name,isApplicant:false}, {
         headers: {
           "Content-Type": "application/json",
         },

@@ -29,6 +29,7 @@ import {
 
 function MyJobDetails() {
 
+    const server=import.meta.env.VITE_APP_SERVER
     const [jobs, setJobs] = useState([])
     const [load, setLoad] = useState(true)
     const navigate = useNavigate()
@@ -39,7 +40,7 @@ function MyJobDetails() {
     useEffect(() => {
         const fetchJobs = async () => {
 
-            await axios.get(`http://localhost:3000/job/getMyJobs`, {
+            await axios.get(`${server}/job/getMyJobs`, {
                 withCredentials: true
             }).then((res) => {
                 setJobs(res.data.jobs)
@@ -56,7 +57,7 @@ function MyJobDetails() {
     start = jobs.findIndex(item => item._id === id)
 
     const deleteJob=async(jobid)=>{
-        await axios.get(`http://localhost:3000/job/deleteJob/${jobid}`,{withCredentials:true}).then(
+        await axios.get(`${server}/job/deleteJob/${jobid}`,{withCredentials:true}).then(
             navigate('/allJobs')
         )
     }

@@ -9,6 +9,8 @@ import Header from '../Permanent/Header'
 
 
 const ApplicationDetails = () => {
+    const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
     const [app, setApp] = useState({})
     const [employer,setEmployer]=useState({})
     const [load, setLoad] = useState(true)
@@ -18,7 +20,7 @@ const ApplicationDetails = () => {
     const navigate=useNavigate()
     useEffect(() => {
         const fetchApp = async () => {
-            await axios.get(`http://localhost:3000/app/applicationDetails/${id}`, { withCredentials: true })
+            await axios.get(`${server}/app/applicationDetails/${id}`, { withCredentials: true })
                 .then((res) => {
                     setApp(res.data.application)
                     setEmployer(res.data.employer)
@@ -33,7 +35,7 @@ const ApplicationDetails = () => {
     }
 
     const deleteFavourite = async (id) => {
-            await axios.post(`http://localhost:3000/job/deleteFav/${employer._id}`, { appId: id }, {
+            await axios.post(`${server}/job/deleteFav/${employer._id}`, { appId: id }, {
                 withCredentials: true,
             }).then((res) => {
                 setIschecked(!ischecked)
@@ -43,7 +45,7 @@ const ApplicationDetails = () => {
         }
     
         const addFavourite = async (id) => {
-            await axios.post(`http://localhost:3000/job/addFav/${employer._id}`, { appId: id }, {
+            await axios.post(`${server}/job/addFav/${employer._id}`, { appId: id }, {
                 withCredentials: true,
             }).then((res) => {
                 setIschecked(!ischecked)

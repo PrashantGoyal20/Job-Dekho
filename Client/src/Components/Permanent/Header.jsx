@@ -14,7 +14,7 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 
 const Header = () => {
 
-
+  const server=import.meta.env.VITE_APP_SERVER
   const { isAuthorized, setIsAuthorized, user ,setUser} = useContext(Context);
   const navigateTo = useNavigate();
   const navRef = useRef()
@@ -26,7 +26,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await axios.get(
-        "http://localhost:3000/user/logout"
+        `${server}/user/logout`
         , { withCredentials: true }
       ).then((response)=>{;
       toast.success(response.data.message);

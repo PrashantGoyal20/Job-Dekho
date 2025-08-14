@@ -11,7 +11,9 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 
 const FurtherQuery = () => {
-    const { isAuthorized, setIsAuthorized } =useContext(Context)
+
+    const google=import.meta.env.VITE_APP_GOOGLE
+    const server=import.meta.env.VITE_APP_SERVER
     const navigate=useNavigate()
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
@@ -46,7 +48,7 @@ const FurtherQuery = () => {
       error.current.classList.replace("error-hidden","error-visible");
       return
       }
-      const { data } = await axios.post("http://localhost:3000/user/googleAuth",
+      const { data } = await axios.post(`${server}/user/googleAuth`,
         { name, email, phone, password, role, city }, {
         headers: {
           "Content-Type": "application/json",

@@ -16,6 +16,7 @@ import { ArrowLeft, ThumbsDown,ThumbsUp,Mail, Phone, MapPin, Award, Clock,EyeOff
 
 
 const ViewOurApplicants = () => {
+    const server=import.meta.env.VITE_APP_SERVER
     const [application, setApplication] = useState([])
     const [employer, setEmployer] = useState({})
     const { user, isAuthorized } = useContext(Context);
@@ -30,12 +31,12 @@ const ViewOurApplicants = () => {
     const [favourite,setfavourite]=useState(false)
 
     useEffect(() => {
-        // if(!isAuthorized && user.role=='Job Manager'){
-        //     navigate('/login')
-        // }
+        if(!isAuthorized && user.role=='Job Manager'){
+            navigate('/login')
+        }
         try {
 
-            axios.get(`http://localhost:3000/app/employer/getAll/${id}`, {
+            axios.get(`${server}/app/employer/getAll/${id}`, {
                 withCredentials: true,
             })
                 .then((res) => {
@@ -55,7 +56,7 @@ const ViewOurApplicants = () => {
     }
 
     const deleteFavourite = async (id) => {
-        await axios.post(`http://localhost:3000/job/deleteFav/${employer._id}`, { appId: id }, {
+        await axios.post(`${server}/job/deleteFav/${employer._id}`, { appId: id }, {
             withCredentials: true,
         }).then((res) => {
             setIschecked(!ischecked)
@@ -65,7 +66,7 @@ const ViewOurApplicants = () => {
     }
 
     const addFavourite = async (id) => {
-        await axios.post(`http://localhost:3000/job/addFav/${employer._id}`, { appId: id }, {
+        await axios.post(`${server}/job/addFav/${employer._id}`, { appId: id }, {
             withCredentials: true,
         }).then((res) => {
             setIschecked(!ischecked)
@@ -74,7 +75,7 @@ const ViewOurApplicants = () => {
     }
 
     const changeStatus=async(value,id)=>{
-    await axios.post(`http://localhost:3000/app/changeStatus/${id}`,{status:value},{withCredentials:true}).then(
+    await axios.post(`${server}/app/changeStatus/${id}`,{status:value},{withCredentials:true}).then(
         (res)=>{
             setStatus(false)
             

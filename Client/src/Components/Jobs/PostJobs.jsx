@@ -11,6 +11,7 @@ import Footer from '../Permanent/Footer';
 import { useRef } from 'react';
 
 const PostJobs = () => {
+  const server=import.meta.env.VITE_APP_SERVER
   const [company,setCompany]=useState('')
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,10 +30,10 @@ const PostJobs = () => {
   const imageRef = useRef()
   const errorRef=useRef()
 
-  // if (!isAuthorized || (user && user.role !== "Job Manager")) {
-  //     return navigate("/login");
+  if (!isAuthorized || (user && user.role !== "Job Manager")) {
+      return navigate("/login");
 
-  // }
+  }
 
   const handleImage = () => {
     imageRef.current.click()
@@ -73,7 +74,7 @@ const PostJobs = () => {
     console.log(formData)
     await axios
       .post(
-        "http://localhost:3000/job/postJobs",formData, {
+        `${server}/job/postJobs`,formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

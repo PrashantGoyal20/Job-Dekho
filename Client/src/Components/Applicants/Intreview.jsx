@@ -11,6 +11,9 @@ import { Context } from '../../main';
 
 const Intreview = () => {
 
+    const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
+
     const [topics, setTopics] = useState(['']);
     const error_ref = useRef()
     const navigate=useNavigate()
@@ -48,7 +51,7 @@ const Intreview = () => {
         navigate(`/proceed-interview?${query}`)
     }
     useEffect(()=>{
-        // if(!isAuthorized) navigate('/login')
+        if(!isAuthorized) navigate('/login')
     },[])
 
     

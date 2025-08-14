@@ -8,20 +8,22 @@ import { useRef } from 'react';
 
 
 const Chat = () => {
-  // const [question, setQuestion] = useState('')
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
+  const [question, setQuestion] = useState('')
   const [ans, setAns] = useState([]);
   const [load, setLoad] = useState(true)
   const keyRef = useRef(null)
   useEffect(() => {
     const handleStartConv = async () => {
-      // await axios.post('http://localhost:3000/chat/start-chat', { start: "start" },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     withCredentials: true,
-      //   }
-      // )
+      await axios.post(`${server}/chat/start-chat`, { start: "start" },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      )
     }
     setTimeout(() => {
       setAns(prev => [{ role: 'assistant', content: "Hello, How may I help you today....." }])
@@ -77,7 +79,7 @@ const Chat = () => {
   const handleSubmit = async (ques) => {
     try {
 
-      await axios.post("http://localhost:3000/chat/question",
+      await axios.post(`${server}/chat/question`,
         { "query": ques }, {
         headers: {
           "Content-Type": "application/json",

@@ -33,11 +33,12 @@ import ApplicationDetails from './Components/Applicants/ApplicationDetails.jsx'
 
 function App() {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+  const server=import.meta.env.VITE_APP_SERVER
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/user/getuser`,{
+          `${server}/user/getuser`,{
             withCredentials: true,
           }
         );

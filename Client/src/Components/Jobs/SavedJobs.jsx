@@ -9,18 +9,19 @@ import { Context } from '../../main'
 import { MoveRight } from 'lucide-react'
 
 const SavedJobs = () => {
+    const server=import.meta.env.VITE_APP_SERVER
     const [jobs, setJobs] = useState([])
         const [load, setLoad] = useState(true)
         const navigate = useNavigate()
         const { user, isAuthorized } = useContext(Context)
     
         useEffect(() => {
-            // if(!isAuthorized || user?.role!='Job Manager'){
-            //     navigate('/login')
-            // }
+            if(!isAuthorized || user?.role!='Job Manager'){
+                navigate('/login')
+            }
             const fetchJobs = async () => {
     
-                await axios.get(`http://localhost:3000/job/getAllSaved`, {
+                await axios.get(`${server}/job/getAllSaved`, {
                     withCredentials: true
                 }).then((res) => {
                     setJobs(res.data.jobs)

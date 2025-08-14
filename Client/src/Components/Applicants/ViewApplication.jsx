@@ -10,6 +10,9 @@ import Loader from '../Permanent/Loader';
 import Footer from '../Permanent/Footer';
 
 const ViewApplication = () => {
+
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const [application, setApplication] = useState([])
   const [employer, setEmployer] = useState([])
   const { user, isAuthorized } = useContext(Context);
@@ -37,7 +40,7 @@ const ViewApplication = () => {
     try {
 
       axios
-        .get("http://localhost:3000/app/employee/viewApplication", {
+        .get(`${server}/app/employee/viewApplication`, {
           withCredentials: true,
         })
         .then((res) => {
@@ -51,9 +54,9 @@ const ViewApplication = () => {
     }
   }, [isAuthorized]);
 
-  // if (!isAuthorized) {
-  //   return navigate("/login");
-  // }
+  if (!isAuthorized) {
+    return navigate("/login");
+  }
 
   const handleNavigation = (id) => {
     navigate(`/viewApplication/${id}`)

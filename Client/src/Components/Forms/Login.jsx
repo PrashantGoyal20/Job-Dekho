@@ -12,6 +12,8 @@ import Header from '../Permanent/Header';
 
 const Login = () => {
 
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("")
@@ -27,7 +29,7 @@ const Login = () => {
         error.current.classList.replace("error-hidden", "error-visible");
         return
       }
-      const { data } = await axios.post("http://localhost:3000/user/login",
+      const { data } = await axios.post(`${server}/user/login`,
         { email, password, role }, {
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +136,7 @@ const Login = () => {
           </div>
 
           <div className="social-buttons">
-            <a href='http://localhost:3000/user/google' className="social-btn">
+            <a href={google} className="social-btn">
               <span className="social-icon google">G</span>
               Google
             </a>

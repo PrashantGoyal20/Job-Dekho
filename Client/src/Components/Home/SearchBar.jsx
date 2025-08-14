@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
 
+  const server=import.meta.env.VITE_APP_SERVER
   const [searchTerm,setSearchTerm ] =useState("")
   const [location,setLocation]=useState('')
   const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ const SearchBar = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3000/search?q=${searchTerm}`);
+        const response = await axios.get(`${server}/search?q=${searchTerm}`);
         setData(response.data);
       } catch (error) {
         Alert("Error fetching data:", error);

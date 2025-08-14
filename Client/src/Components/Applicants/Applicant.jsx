@@ -10,6 +10,8 @@ import Footer from '../Permanent/Footer';
 import Loader from '../Permanent/Loader';
 
 const Applicant = () => {
+  const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
   const { user, isAuthorized } = useContext(Context)
   const [profile,setProfile]=useState('')
   const profileRef=useRef(null)
@@ -116,8 +118,7 @@ const Applicant = () => {
     try {
       const stringexp=JSON.stringify(experience)
       const stringproject=JSON.stringify(project)
-      console.log({profile,name,email,phone ,address,state,city,experience:stringexp,linkedinUrl,portfolioUrl,expectedSalary,exp,stringproject,availableStartDate,whyInterested,coverLetter,pincode,resume,jobId: id,employerName: employer.company})
-      const { data } = await axios.post("http://localhost:3000/app/postApplication",
+      const { data } = await axios.post(`${server}/app/postApplication`,
         {profile,name,email,phone ,address,state,city,experience:stringexp,linkedinUrl,portfolioUrl,expectedSalary,exp,project:stringproject,availableStartDate,whyInterested,coverLetter,pincode,resume,jobId: id,employerName: employer.company},
         {
           withCredentials: true,
@@ -139,13 +140,13 @@ const Applicant = () => {
     }
   };
 
-  // if (!isAuthorized || (user && user.role === "Job Manager")) {
-  //   navigate("/login");
-  // }
+  if (!isAuthorized || (user && user.role === "Job Manager")) {
+    navigate("/login");
+  }
   useEffect(() => {
     const fetchEmployer = async () => {
       try {
-        await axios.get(`http://localhost:3000/app/findemployer/${id}`, {
+        await axios.get(`${server}/app/findemployer/${id}`, {
           withCredentials: true,
         }).then((res) => {
           setEmployer(res.data.job);

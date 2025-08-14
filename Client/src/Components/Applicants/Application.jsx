@@ -16,17 +16,14 @@ import { ArrowLeft, ThumbsDown, ThumbsUp, Mail, Phone, MapPin, Award, IndianRupe
 
 import {
     LiveKitRoom,
-    GridLayout,
-    ParticipantTile,
-    useTracks,
-    ControlBar,
     VideoConference
 } from '@livekit/components-react';
-import { Track } from 'livekit-client';
 import '@livekit/components-styles';
 import VideoGrid from './Messaging/Room'
 
 function Application() {
+    const google=import.meta.env.VITE_APP_GOOGLE
+  const server=import.meta.env.VITE_APP_SERVER
     const [application, setApplication] = useState([])
     const [employer, setEmployer] = useState([])
     const { user, isAuthorized } = useContext(Context);
@@ -46,13 +43,13 @@ function Application() {
 
 
     useEffect(() => {
-        // if(!isAuthorized){
-        //     navigate('/login')
-        // }
+        if(!isAuthorized){
+            navigate('/login')
+        }
         try {
 
             axios
-                .get("http://localhost:3000/app/employee/viewApplication", {
+                .get(`${server}/app/employee/viewApplication`, {
                     withCredentials: true,
                 })
                 .then((res) => {
@@ -68,7 +65,7 @@ function Application() {
 
     const joinInterview = async (id, i) => {
         if (!application[i].roomToken) return;
-        await axios.get(`http://localhost:3000/join-meet/${id}`).then((res) => {
+        await axios.get(`${server}/join-meet/${id}`).then((res) => {
             room = res.data.token
             name = application[i].name
             setUrl(res.data.url)
@@ -85,7 +82,7 @@ function Application() {
     const initiateRoom = async (id) => {
         setLoad(true)
         console.log(name + "" + room + " " + id)
-        await axios.post(`http://localhost:3000/get-token/${id}`, { room, name, isApplicant: true }, {
+        await axios.post(`${server}/get-token/${id}`, { room, name, isApplicant: true }, {
             headers: {
                 "Content-Type": "application/json",
             },
