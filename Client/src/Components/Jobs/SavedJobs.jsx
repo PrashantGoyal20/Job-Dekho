@@ -16,7 +16,7 @@ const SavedJobs = () => {
         const { user, isAuthorized } = useContext(Context)
     
         useEffect(() => {
-            if(!isAuthorized || user?.role!='Job Manager'){
+            if(!isAuthorized){
                 navigate('/login')
             }
             const fetchJobs = async () => {

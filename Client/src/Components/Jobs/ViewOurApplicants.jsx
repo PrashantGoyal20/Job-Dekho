@@ -31,7 +31,7 @@ const ViewOurApplicants = () => {
     const [favourite,setfavourite]=useState(false)
 
     useEffect(() => {
-        if(!isAuthorized && user.role=='Job Manager'){
+        if(!isAuthorized){
             navigate('/login')
         }
         try {

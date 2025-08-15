@@ -62,7 +62,8 @@ const Header = () => {
             <div class="nav-links">
                 <a href="/allJobs" class="nav-link">Jobs</a>
                 {user && user.role == "Job Manager" ?<a href="/myJobs" class="nav-link">My Jobs</a>:<></>}
-                {user && user.role == "Job Manager" ?<a href="/favourites" class="nav-link">Favourites</a>:<>{user && user.role == "Job Seeker" ?<a href="/savedJobs" class="nav-link">Saved Jobs</a>:<></>}</>}
+                {user && user.role == "Job Manager" ?<a href="/favourites" class="nav-link">Favourites</a>:<></>}
+                {user ?<a href="/savedJobs" class="nav-link">Saved Jobs</a>:<></>}
                 {user && user.role == "Job Seeker" ? <a href="/viewApplication" class="nav-link">My Application</a>:<></>}
                 {user && user.role == "Job Seeker" ? <a href="/interview" class="nav-link">Interview</a>:<></>}
                 {isAuthorized?<></>:<a href="/services" class="nav-link">Services</a>}
