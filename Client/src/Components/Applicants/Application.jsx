@@ -19,7 +19,6 @@ import {
     VideoConference
 } from '@livekit/components-react';
 import '@livekit/components-styles';
-import VideoGrid from './Messaging/Room'
 
 function Application() {
     const google=import.meta.env.VITE_APP_GOOGLE
