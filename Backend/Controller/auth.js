@@ -26,6 +26,8 @@ export const register = catchAsyncErrors(async (req, res, next) => {
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    secure:true,
+    sameSite: "None"
   };
 
   res.status(200).cookie("token", token, options).json({
@@ -64,6 +66,8 @@ export const login = catchAsyncErrors(async (req, res, next) => {
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    secure:true,
+    sameSite: "None"
   };
 
   res.status(200).cookie("token", token, options).json({
@@ -79,7 +83,8 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 export const logout = catchAsyncErrors(async (req, res, next) => {
   res.clearCookie('token', {
     httpOnly: true,
-    secure: true
+    secure:true,
+    sameSite: "None"
   });
   res.status(200).json({
     sucsess: true,
@@ -119,6 +124,8 @@ export const googleAuth=async(req,res,next)=>{
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    secure:true,
+    sameSite: "None"
   };
 
   res.status(200).cookie("token", token, options).json({
