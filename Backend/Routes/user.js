@@ -10,6 +10,9 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 dotenv.config()
 
+const GOOGLE_REDIRECT=process.env.GOOGLE_REDIRECT
+const FRONTEND_URL=process.env.FRONTEND_URL
+
 const router = express.Router();
 
 const getJwt = (id) => {
@@ -30,16 +33,18 @@ passport.deserializeUser(async (email, done) => {
 passport.use(new Strategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: `http://localhost:3000/user/google/callback`
+  callbackURL: `${GOOGLE_REDIRECT}`
 }, async (accessToken, refreshToken, profile, done) => {
   done(null, profile)
 
 }))
 
+
+
 router.post('/register', register);
 router.post('/login', login);
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: 'http://localhost:5173/register?error=error-in-registeration' }), async (req, res) => {
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: `${FRONTEND_URL}/register?error=error-in-registeration` }), async (req, res) => {
   const profile = req.user
   const existinguser = await User.findOne({ email: profile.emails?.[0]?.value })
   if (existinguser) {
@@ -51,7 +56,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
       httpOnly: true,
     };      
       res.status(200).cookie("token", token, options)
-      return res.redirect('http://localhost:5173')
+      return res.redirect(`${FRONTEND_URL}`)
     
   }
   else {
@@ -62,7 +67,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
       avatar: profile.photos?.[0]?.value || ''
     });
 
-    res.redirect(`http://localhost:5173/registeration/proceed?${queryParams.toString()}`)
+    res.redirect(`${FRONTEND_URL}/registeration/proceed?${queryParams.toString()}`)
   }
 })
 
